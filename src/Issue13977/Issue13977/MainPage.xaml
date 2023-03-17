@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Issue13977.MainPage"
+    >
+    <ContentPage.Resources>
+        <Style x:Key="DefaultLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="MontserratSemiBold" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+            <Setter Property="LineHeight" Value="{OnPlatform Default=1.25, iOS=-1}"/>
+        </Style>
+
+        <Style x:Key="LabelStyle" TargetType="Label" BasedOn="{StaticResource DefaultLabelStyle}">
+            <Setter Property="FontSize" Value="{OnIdiom Desktop=14, Tablet=14, Default=12}"/>
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center"
+            >
+            <Label
+                HorizontalTextAlignment="Start"
+                Margin="2,4"
+                Style="{StaticResource LabelStyle}"
+                VerticalTextAlignment="End"
+                Text="Diskspace"
+                />
+
+            <Label
+              HorizontalTextAlignment="Start"
+              Margin="2,4"
+              Style="{StaticResource LabelStyle}"
+              VerticalTextAlignment="End"
+              >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="Diskspace" />
+                            <!--<Span Text=" #1" />-->
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
